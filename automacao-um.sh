@@ -1,6 +1,6 @@
 #!/bin/bash
 ################################################################################
-# Nome: automatizacao-um
+# Nome: automatizacao-basica-um
 #
 # Descrição: Script que automatiza algumas tarefas rotineiras no Ubuntu Serve
 # como atualização de pacotes, criação de usuários e outras disponívies no menu
@@ -356,4 +356,3 @@ while true; do
 	fi
 
 done
-
