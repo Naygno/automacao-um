@@ -116,6 +116,7 @@ while true; do
 											echo "Esta instrução não é uma opção válida."
 											echo "So long, thanks for all the fish!"
 											continue
+											;;
 									esac
 								done
 							else
@@ -137,6 +138,7 @@ while true; do
 						echo "Instrução inválida."
 						echo "So long, and thanks for all the fish!"
 						break
+						;;
 				esac
 				;;
 
@@ -238,6 +240,7 @@ while true; do
 								echo "Instrução inválida."
 								echo "So long, and thanks for all the fish!"
 								break
+							;;
 						esac
 						;;
 
@@ -253,6 +256,7 @@ while true; do
 						echo "Instrução inválida."
 						echo "So long, thanks for all the fish!"
 						break
+						;;
 				esac
 				;;
 
@@ -287,6 +291,7 @@ while true; do
 						echo "Intrução inválida."
 						echo "So long, and thanks for all the fish!"
 						break
+						;;
 				esac
 				;;
 			'4' )
@@ -312,6 +317,7 @@ while true; do
 						echo "Intrução inválida."
 						echo "So long, thanks for all the fish!"
 						break
+						;;
 				esac
 				;;
 			'5' )
@@ -337,6 +343,7 @@ while true; do
 						echo "Intrução inválida."
 						echo "So long, thanks for all the fish!"
 						break
+						;;
 				esac
 				;;
 			'6' )
@@ -351,6 +358,7 @@ while true; do
 				echo "Instrução inválida."
 				echo "So long, thanks for all the fish!"
 				break
+				;;
 
 		esac
 	fi
