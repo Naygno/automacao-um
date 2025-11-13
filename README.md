@@ -44,12 +44,12 @@ O script oferece um menu interativo com as seguintes opções:
 
 2. Dê permissão de execução ao script:
    ```bash
-   chmod +x automatizacao-basica-um.sh
+   chmod +x automatizacao-um.sh
    ```
 
 3. Execute o script:
    ```bash
-   ./automatizacao-basica-um.sh
+   ./automatizacao-um.sh
    ```
 
 ---
@@ -77,7 +77,7 @@ Este script foi desenvolvido como parte da atividade **Hora da Prática**, que p
 ## 👨‍💻 Autor
 
 - **Naygno B. Noia**  
-- Data: 12/11/2025
+- Data: 13/11/2025
 
 ---
 

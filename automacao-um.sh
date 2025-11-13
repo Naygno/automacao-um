@@ -1,6 +1,6 @@
 #!/bin/bash
 ################################################################################
-# Nome: automatizacao-basica-um
+# Nome: automatizacao-um
 #
 # Descrição: Script que automatiza algumas tarefas rotineiras no Ubuntu Serve
 # como atualização de pacotes, criação de usuários e outras disponívies no menu
@@ -200,20 +200,38 @@ while true; do
 								ls "$diretorio" > /dev/null 2>&1
 
 								if [[ $? -eq 0 ]]; then
+									k=0
 									for arquivo in "$diretorio"/*; do
-										mv "$arquivo" "${arquivo%.*}.$sufixo"
+										if [[ ! "${arquivo%.*}" == "${arquivo##*.}" ]]; then # Texta se o arquivo tem extensão, caso tenha, passa no teste. Este teste evita de tentar renomear diretório.
+											k=$((k+1)) # Conta quantos arquivos haviam no diretório antes da aplicação do novo sufixo.
+											if [[ "${arquivo##*.}" != "$sufixo" ]]; then
+												mv "$arquivo" "${arquivo%.*}.$sufixo"
+											fi
+										fi
+									done
+									
+									l=0
+									for arquivo in "$diretorio"/*; do
+										
+										if [[ ! "${arquivo%.*}" == "${arquivo##*.}" ]]; then # Testa se o arquivo tem extensão, caso tenha, passa no teste. Este teste evita de tentar renomear diretório.
+											if [[ "${arquivo##*.}" == "$sufixo" ]]; then
+												l=$((l+1)) # Conta arquivo com o novo sufixo
+											fi
+										fi
 									done
 
-									if [[ -e "$diretorio/*.$sufixo" ]]; then
+									if [[ $l -eq $k ]]; then
 										
-										echo "Operação realizada com sucesso!"
-									else
-										echo "Nenham mudança realizada."
-									fi
+										echo "Operação realizada com sucesso! Pois $l = $k"
 
+									elif [[ $l -lt $k && $l -gt 0 ]]; then
+
+										echo "Operação realizada parcialmente. Pois apenas $l dos $k arquivos existentes no diretório foram atualizados."
+									fi
 								else
 									echo "Nenhum arquivo encontrado no diretório $diretorio."
 								fi
+								
 								;;
 
 							* )
