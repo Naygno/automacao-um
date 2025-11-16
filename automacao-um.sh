@@ -29,14 +29,14 @@ while true; do
 
 	if [[ $p -eq 0 ]]; then
 
-		read -e -p "Escolha uma opção [1-6]: " opcao # Adicinei o comando -e para disponibilizar a navegabilidade com as setas e evitar caracteres estranhos como ^[[A que atrapalham...
+		read -e -p "Escolha uma opção [1-6]: " opcao # Adicionei o comando -e para disponibilizar a navegabilidade com as setas e evitar caracteres estranhos como ^[[A que atrapalham...
 
 	else
-		read -e -p "Escolha outra opção [1-6]: " opcao # Adicinei o comando -e para disponibilizar a navegabilidade com as setas e evitar caracteres estranhos como ^[[A que atrapalham...
+		read -e -p "Escolha outra opção [1-6]: " opcao # Adicionei o comando -e para disponibilizar a navegabilidade com as setas e evitar caracteres estranhos como ^[[A que atrapalham...
 	fi
 
 
-	if [[ "$opcao" =~ ^[a-zA-Z07-9_-]+$ ]]; then # Verifica se o usúario digitou alguma instrução não disponibilizado no menu.
+	if [[ "$opcao" =~ ^[a-zA-Z07-9_-]+$ ]]; then # Verifica se o usuário digitou alguma instrução não disponibilizado no menu.
 		
 		echo "Esta instrução não é uma opção válida."
 		echo "So long, thanks for all the fish!"
@@ -64,7 +64,7 @@ while true; do
 									echo "==== Atualizações ===="
 									echo "Opções:"
 									echo " 1) Atualizar Lista"
-									echo " 2) Atualisar Pacotes"
+									echo " 2) Atualizar Pacotes"
 									echo " 3) Limpar (opcional)"
 									echo " 4) Finaliza"
 									echo "======================"
@@ -144,7 +144,7 @@ while true; do
 
 			'2' ) 
 			
-				echo "Esta opção renomeia todos os arquivos do direório com prefixo ou sufixo."
+				echo "Esta opção renomeia todos os arquivos do diretório com prefixo ou sufixo."
 				read -e -p "Para prosseguir digite (S)im ou (N)ão para desistir: " renomear
 
 				case "$renomear" in
@@ -166,7 +166,7 @@ while true; do
 								if [[ $? -eq 0 ]]; then
 									i=1
 									for arquivo in "$diretorio"/*; do
-										if [[ ! "${arquivo%.*}" == "${arquivo##*.}" ]]; then # Texta se o arquivo tem extensão, caso tenha, passa no teste. Este teste evita de tentar renomear diretório.
+										if [[ ! "${arquivo%.*}" == "${arquivo##*.}" ]]; then # Testa se o arquivo tem extensão, caso tenha, passa no teste. Este teste evita de tentar renomear diretório.
 											if [[ -f "$arquivo" && ! -x "$arquivo" ]]; then # Verifica se é uma arquivo comum e não executável, para impedir que tente renomear, por exemplo, a si mesmo...
 
 												mv "$arquivo" "$diretorio/${prefixo}_$i.${arquivo##*.}" # Renomeia o arquivo preservando a extensão.
@@ -204,7 +204,7 @@ while true; do
 								if [[ $? -eq 0 ]]; then
 									k=0
 									for arquivo in "$diretorio"/*; do
-										if [[ ! "${arquivo%.*}" == "${arquivo##*.}" ]]; then # Texta se o arquivo tem extensão, caso tenha, passa no teste. Este teste evita de tentar renomear diretório.
+										if [[ ! "${arquivo%.*}" == "${arquivo##*.}" ]]; then # Testa se o arquivo tem extensão, caso tenha, passa no teste. Este teste evita de tentar renomear diretório.
 											k=$((k+1)) # Conta quantos arquivos haviam no diretório antes da aplicação do novo sufixo.
 											if [[ "${arquivo##*.}" != "$sufixo" ]]; then
 												mv "$arquivo" "${arquivo%.*}.$sufixo"
@@ -269,7 +269,7 @@ while true; do
 
 					'S'|'s'|'Sim'|'sim' )
 						
-						if [[ $(id -u) -eq 0 ]]; then # Verifica se tem privilégio de super usuário (se rotorna 0).
+						if [[ $(id -u) -eq 0 ]]; then # Verifica se tem privilégio de super usuário (se retorna 0).
 							read -e -p ""
 							
 
@@ -322,7 +322,7 @@ while true; do
 				;;
 			'5' )
 				echo "Esta opção realiza backup de um diretório para um"
-			        echo "local específico utiliando a compressão 'gzip'."
+			        echo "local específico utilizando a compressão 'gzip'."
 				read -e -p "Para prosseguir digite (S)im ou (N)ão para desistir: "  compressao
 
 				case "$compressao" in
